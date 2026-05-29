@@ -10,8 +10,8 @@ import { v4 as uuidv4 } from "uuid";
 
 // useContext hook
 import MyArr from "./contexts/Array";
-import AlertFun from "./contexts/AlertFunc";
-import { useState, useContext } from "react";
+// import AlertFun from "./contexts/AlertFunc";
+import { useState, } from "react";
 
 
 function App() {
@@ -54,7 +54,7 @@ function App() {
   });
 
 
-  let { alertEvent } = useContext(AlertFun);
+  // let { alertEvent } = useContext(AlertFun);
 
   return (
     <ThemeProvider theme={theme}>

@@ -28,6 +28,9 @@ import { useContext } from "react";
 import MyArr from "../contexts/Array";
 import AlertFun from "../contexts/AlertFunc";
 export default function TodoList() {
+  // use global array
+  let { readToDos, setToDos } = useContext(MyArr);
+
   //==== get tasks from local storage===//
   useEffect(() => {
     var getTasksFromStorage = JSON.parse(localStorage.getItem("myTodos"));
@@ -35,10 +38,7 @@ export default function TodoList() {
       getTasksFromStorage = [];
     }
     setToDos(getTasksFromStorage);
-  }, []);
-
-  // use global array
-  let { readToDos, setToDos } = useContext(MyArr);
+  }, [setToDos]);
 
   // useState to input
   let [readInputVal, setInputVal] = useState("");
