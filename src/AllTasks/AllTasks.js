@@ -105,102 +105,102 @@ export default function TodoList() {
 
   return (
     <Container maxWidth="sm">
-      <Card sx={{ minWidth: 275, maxHeight: "95vh", overflowY: "scroll" }}>
+      <Typography
+        variant="h2"
+        style={{ fontWeight: "bold", textAlign: "center" }}
+      >
+        <span style={{ color: "teal" }}>My </span>
+
+        <span style={{ color: "orange" }}>Tasks</span>
+      </Typography>
+
+      {/* horizontal line */}
+      <Divider />
+
+      {/* FILTER BUTTONS */}
+      <ToggleButtonGroup
+        value={readFilter}
+        className="my-1"
+        onChange={(e, newValue) => {
+          if (newValue != null) {
+            setFilter(newValue);
+          }
+        }}
+        style={{
+          direction: "ltr",
+          margin: "auto",
+        }}
+        exclusive
+        aria-label="text alignment"
+      >
+        <ToggleButton
+          value="all"
+          color="primary"
+          style={{ fontWeight: "900", backgroundColor: "#fff" }}
+        >
+          All
+        </ToggleButton>
+        <ToggleButton
+          value="completed"
+          color="secondary"
+          style={{ fontWeight: "900", backgroundColor: "#fff" }}
+        >
+          Completed
+        </ToggleButton>
+        <ToggleButton
+          value="!completed"
+          color="uncomplete"
+          style={{ fontWeight: "900", backgroundColor: "#fff" }}
+        >
+          !completed
+        </ToggleButton>
+      </ToggleButtonGroup>
+      {/* ==== FILTER BUTTON ==== */}
+      <Card sx={{ minWidth: 275, maxHeight: "65vh", overflowY: "scroll" }}>
         <CardContent>
-          <Typography
-            variant="h2"
-            style={{ fontWeight: "bold", textAlign: "center" }}
-          >
-            <span style={{ color: "teal" }}>My </span>
-
-            <span style={{ color: "orange" }}>Tasks</span>
-          </Typography>
-
-          {/* horizontal line */}
-          <Divider />
-
-          {/* FILTER BUTTONS */}
-          <ToggleButtonGroup
-            value={readFilter}
-            className="my-1"
-            onChange={(e) => {
-              setFilter(e.target.value);
-            }}
-            style={{
-              direction: "ltr",
-              margin: "auto",
-            }}
-            exclusive
-            aria-label="text alignment"
-          >
-            <ToggleButton
-              value="all"
-              color="primary"
-              style={{ fontWeight: "900" }}
-            >
-              All
-            </ToggleButton>
-            <ToggleButton
-              value="completed"
-              color="secondary"
-              style={{ fontWeight: "900" }}
-            >
-              Completed
-            </ToggleButton>
-            <ToggleButton
-              value="!completed"
-              color="uncomplete"
-              style={{ fontWeight: "900" }}
-            >
-              !completed
-            </ToggleButton>
-          </ToggleButtonGroup>
-          {/* ==== FILTER BUTTON ==== */}
-
           {/* ALL TODOS */}
           {myTodos}
           {/* === ALL TODOS === */}
-
-          {/* INPUT + ADD BUTTON */}
-          <Grid container style={{ marginTop: "20px" }} spacing={2}>
-            <Grid
-              size={{ xs: 12, sm: 10 }}
-              display="flex"
-              justifyContent="space-around"
-              alignItems="center"
-            >
-              <TextField
-                style={{ width: "100%" }}
-                id="outlined-basic"
-                label="task...."
-                variant="outlined"
-                value={readInputVal}
-                onChange={(e) => {
-                  setInputVal(e.target.value);
-                }}
-              />
-            </Grid>
-
-            <Grid
-              size={{ xs: 12, sm: 2 }}
-              display="flex"
-              justifyContent="space-around"
-              alignItems="center"
-            >
-              <Button
-                color="primary"
-                style={{ width: "100%", height: "100%" }}
-                variant="contained"
-                onClick={() => setInArr()}
-                disabled={readInputVal <= 0 ? true : false}
-              >
-                Add
-              </Button>
-            </Grid>
-          </Grid>
-          {/*== INPUT + ADD BUTTON ==*/}
         </CardContent>
       </Card>
+      {/* INPUT + ADD BUTTON */}
+      <Grid container style={{ marginTop: "18px" }} spacing={1}>
+        <Grid
+          size={{ xs: 12, sm: 10 }}
+          display="flex"
+          justifyContent="space-around"
+          alignItems="center"
+        >
+          <TextField
+            style={{ width: "100%" }}
+            id="outlined-basic"
+            label="task...."
+            variant="outlined"
+            value={readInputVal}
+            onChange={(e) => {
+              setInputVal(e.target.value);
+            }}
+          />
+        </Grid>
+
+        <Grid
+          size={{ xs: 12, sm: 2 }}
+          display="flex"
+          justifyContent="space-around"
+          alignItems="center"
+        >
+          <Button
+            color="primary"
+            style={{ width: "100%", height: "100%" }}
+            variant="contained"
+            onClick={() => setInArr()}
+            disabled={readInputVal <= 0 ? true : false}
+          >
+            Add
+          </Button>
+        </Grid>
+      </Grid>
+      {/*== INPUT + ADD BUTTON ==*/}
     </Container>
   );
 }
