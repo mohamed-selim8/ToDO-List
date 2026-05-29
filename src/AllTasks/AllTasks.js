@@ -115,12 +115,12 @@ export default function TodoList() {
       </Typography>
 
       {/* horizontal line */}
-      <Divider />
+      <Divider className="my-1" />
 
       {/* FILTER BUTTONS */}
       <ToggleButtonGroup
         value={readFilter}
-        className="my-1"
+        className="my-2"
         onChange={(e, newValue) => {
           if (newValue != null) {
             setFilter(newValue);
@@ -164,7 +164,7 @@ export default function TodoList() {
         </CardContent>
       </Card>
       {/* INPUT + ADD BUTTON */}
-      <Grid container style={{ marginTop: "18px" }} spacing={1}>
+      <Grid container style={{ marginTop: "15px" }} spacing={1}>
         <Grid
           size={{ xs: 12, sm: 10 }}
           display="flex"
