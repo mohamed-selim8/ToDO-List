@@ -84,7 +84,7 @@ export default function TodoList() {
       readInputVal.indexOf(".") === 0 ||
       readInputVal.indexOf("/") === 0
     ) {
-      alert("");
+      alert("set correct todo..");
       return false;
     } else {
       let newTask = {
